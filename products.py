@@ -13,3 +13,6 @@ print(products)
 print(products[1])
 
 products[0][0] #1st name and price and the 1st item -> name"
+
+for p in products:
+	print('The price of', p[0], 'is', p[1])
