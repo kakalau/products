@@ -1,5 +1,22 @@
+import os #operating system
+
 products = []
 
+if os.path.isfile('product.csv'):
+	print('The file is here')
+	with open('product.csv','r', encoding = 'utf-8')as f: 
+
+		for line in f:
+			if 'products, price' in line:
+				continue 
+			name_1, price_1 = line.strip().split(',')
+			products.append([name_1, price_1 ])
+	print(products)
+else:
+	print('The file cannot be found')
+
+
+#read file
 with open('product.csv','r', encoding = 'utf-8')as f:
 
 	for line in f:
@@ -28,7 +45,7 @@ products[0][0] #1st name and price and the 1st item -> name"
 for p in products:
 	print('The price of', p[0], 'is', p[1])
 
-
+#write file
 with open('product.csv', 'w' , encoding='utf-8') as f:
 	f.write('Product, Price\n')
 	for p in products:
